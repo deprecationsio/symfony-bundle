@@ -19,3 +19,4 @@ deprecations-io/symfony-bundle requires PHP 5.3+ and Symfony 2.8+.
 ## Setup
 
 * [Symfony 2.8](docs/setup-2.8.md)
+* [Symfony 3.x](docs/setup-3.md)

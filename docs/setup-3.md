@@ -1,4 +1,4 @@
-### Setup for Symfony 2.8
+### Setup for Symfony 3.x
 
 1. Install the bundle using Composer:
 
@@ -15,10 +15,10 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = array(
+        $bundles = [
             // ...
             new DeprecationsIo\Bundle\DeprecationsIoBundle(),
-        );
+        ];
         
         // ...
     }
@@ -53,7 +53,7 @@ monolog:
         deprecationsio:
             type: service
             id: 'deprecationsio.monolog_handler'
-
+            
         # Your other usual handlers ...
         main:
             type: stream
