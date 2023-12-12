@@ -11,8 +11,11 @@
 
 namespace DeprecationsIo\Bundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Kernel;
 
-class DeprecationsIoBundle extends Bundle
-{
+// Dynamic definition based on Symfony version
+if (Kernel::MAJOR_VERSION >= 6) {
+    class_alias('DeprecationsIo\Bundle\Symfony6plus\DeprecationsIoBundle', 'DeprecationsIo\Bundle\DeprecationsIoBundle');
+} else {
+    class_alias('DeprecationsIo\Bundle\Symfony2to5\DeprecationsIoBundle', 'DeprecationsIo\Bundle\DeprecationsIoBundle');
 }

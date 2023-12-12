@@ -9,23 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\DependencyInjection;
+namespace DeprecationsIo\Bundle\Symfony6plus\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
- *
- * @internal
  */
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('deprecations_io');
 
-        $rootNode = method_exists($treeBuilder, 'getRootNode') ? $treeBuilder->getRootNode() : $treeBuilder->root('deprecations_io');
+        $rootNode = $treeBuilder->getRootNode();
         $rootNode->children()->scalarNode('dsn')->isRequired()->end()->end();
 
         return $treeBuilder;

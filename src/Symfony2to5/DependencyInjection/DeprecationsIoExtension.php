@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\DependencyInjection;
+namespace DeprecationsIo\Bundle\Symfony2to5\DependencyInjection;
 
 use DeprecationsIo\Monolog\MonologHandlerClassNameResolver;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -18,8 +18,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
- *
- * @final
  */
 class DeprecationsIoExtension extends Extension
 {
