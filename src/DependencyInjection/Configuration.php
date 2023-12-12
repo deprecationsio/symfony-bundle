@@ -25,7 +25,7 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('deprecations_io');
 
-        $rootNode = $treeBuilder->getRootNode();
+        $rootNode = method_exists($treeBuilder, 'getRootNode') ? $treeBuilder->getRootNode() : $treeBuilder->root('deprecations_io');
         $rootNode->children()->scalarNode('dsn')->isRequired()->end()->end();
 
         return $treeBuilder;

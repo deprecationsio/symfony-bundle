@@ -58,6 +58,7 @@ jobs:
 
             # Symfony 2
             - name: Tests | Symfony 2.8
+              if: matrix.php-version <= '7.4'
               run: ./.github/bin/install-symfony.sh 2.8 && php vendor/bin/phpunit
 
             # Symfony 3
