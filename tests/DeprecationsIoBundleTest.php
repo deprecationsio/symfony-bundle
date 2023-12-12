@@ -34,7 +34,5 @@ class DeprecationsIoBundleTest extends UnitTest
 
         $handler = $kernel->getContainer()->get('deprecationsio.monolog_handler');
         $this->assertInstanceOf(MonologHandlerClassNameResolver::resolveHandlerClassName(), $handler);
-
-        dump($handler);exit;
     }
 }
