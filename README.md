@@ -10,8 +10,12 @@ Keeping your code up-to-date was never this easy!
 
 ## Installation
 
-deprecations-io/symfony-bundle requires PHP 5.3+ and Symfony 2.8+. 
+deprecations-io/symfony-bundle requires PHP 5.3+ and Symfony 2.8+.
 
-```
-composer require deprecations-io/symfony-bundle
-```
+> **Note:** If you are using a version of Symfony lower than 2.8, you should be able to safely
+> upgrade to Symfony 2.8 without any code changes. Once done, you will be able to use deprecations.io
+> to track your deprecations and upgrade to Symfony 3 (and then forward!).
+
+## Setup
+
+* [Symfony 2.8](docs/setup-2.8.md)
