@@ -1,7 +1,7 @@
 # deprecations-io/symfony-bundle
 
-deprecations-io/symfony-bundle is a Symfony bundle integrating the [deprecations.io](https://deprecations.io) service
-into Symfony applications.
+deprecations-io/symfony-bundle is a Symfony bundle integrating the [deprecations.io](https://deprecations.io) 
+service into Symfony applications.
 
 deprecations.io is a plug-and-play service to monitor and update your usages of deprecated features from your 
 vendors, keeping your code ready for every major version to come. 
