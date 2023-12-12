@@ -16,26 +16,26 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 
-class Symfony6Kernel extends Kernel
+class Symfony2to5Kernel extends Kernel
 {
-    public function getCacheDir(): string
+    public function getCacheDir()
     {
         return $this->createTmpDir('cache');
     }
 
-    public function getLogDir(): string
+    public function getLogDir()
     {
         return $this->createTmpDir('logs');
     }
 
-    public function registerBundles(): iterable
+    public function registerBundles()
     {
         return array(
             new DeprecationsIoBundle(),
         );
     }
 
-    public function registerContainerConfiguration(LoaderInterface $loader): void
+    public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(function (ContainerBuilder $container) {
             $container->loadFromExtension('deprecations_io', array(

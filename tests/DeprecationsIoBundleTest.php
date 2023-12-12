@@ -20,7 +20,13 @@ class DeprecationsIoBundleTest extends UnitTest
     public function testBootCreatesService()
     {
         $symfonyVersion = explode('.', InstalledVersions::getVersion('symfony/http-kernel'));
-        $kernelClassName = sprintf('Tests\DeprecationsIo\Bundle\Kernel\Symfony%sKernel', $symfonyVersion[0]);
+        $symfonyVersion = (int) $symfonyVersion[0];
+
+        if ($symfonyVersion <= 5) {
+            $kernelClassName = 'Tests\DeprecationsIo\Bundle\Kernel\Symfony2to5Kernel';
+        } else {
+            $kernelClassName = 'Tests\DeprecationsIo\Bundle\Kernel\Symfony6plusKernel';
+        }
 
         /** @var Kernel $kernel */
         $kernel = new $kernelClassName('test', true);
