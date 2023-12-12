@@ -1,0 +1,150 @@
+name: deprecations-io/symfony-bundle
+
+on:
+    pull_request: ~
+    push:
+        branches:
+            - main
+
+jobs:
+    phpunit:
+        name: phpunit (PHP ${{ matrix.php-version }})
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                php-version:
+                    - '5.3'
+                    - '5.4'
+                    - '5.5'
+                    - '5.6'
+                    - '7.0'
+                    - '7.1'
+                    - '7.2'
+                    - '7.3'
+                    - '7.4'
+                    - '8.0'
+                    - '8.1'
+                    - '8.2'
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            #
+            # PHP and Composer install
+            #
+            - name: Install PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  coverage: none
+                  php-version: ${{ matrix.php-version }}
+                  tools: composer
+
+            #
+            # PHPUnit install
+            #
+            - name: Install phpunit 4.* (PHP 5.3 to 7.2)
+              if: matrix.php-version < '7.3'
+              run: composer require --dev --no-update "phpunit/phpunit=4.*"
+
+            - name: Install phpunit 9.* (PHP 7.3+)
+              if: matrix.php-version >= '7.3'
+              run: composer require --dev --no-update "phpunit/phpunit=9.*"
+
+            #
+            # Symfony setup and tests
+            #
+
+            # Symfony 2
+            - name: Tests | Symfony 2.8
+              run: ./bin/install-symfony.sh 2.8 && php vendor/bin/phpunit
+
+            # Symfony 3
+            - name: Tests | Symfony 3.0
+              if: matrix.php-version >= '5.5'
+              run: ./bin/install-symfony.sh 3.0 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 3.1
+              if: matrix.php-version >= '5.5'
+              run: ./bin/install-symfony.sh 3.1 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 3.2
+              if: matrix.php-version >= '5.5'
+              run: ./bin/install-symfony.sh 3.2 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 3.3
+              if: matrix.php-version >= '5.5'
+              run: ./bin/install-symfony.sh 3.3 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 3.4
+              if: matrix.php-version >= '5.5'
+              run: ./bin/install-symfony.sh 3.4 && php vendor/bin/phpunit
+
+            # Symfony 4
+            - name: Tests | Symfony 4.0
+              if: matrix.php-version >= '7.1'
+              run: ./bin/install-symfony.sh 4.0 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 4.1
+              if: matrix.php-version >= '7.1'
+              run: ./bin/install-symfony.sh 4.1 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 4.2
+              if: matrix.php-version >= '7.1'
+              run: ./bin/install-symfony.sh 4.2 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 4.3
+              if: matrix.php-version >= '7.1'
+              run: ./bin/install-symfony.sh 4.3 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 4.4
+              if: matrix.php-version >= '7.1'
+              run: ./bin/install-symfony.sh 4.4 && php vendor/bin/phpunit
+
+            # Symfony 5
+            - name: Tests | Symfony 5.0
+              if: matrix.php-version >= '7.2'
+              run: ./bin/install-symfony.sh 5.0 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 5.1
+              if: matrix.php-version >= '7.2'
+              run: ./bin/install-symfony.sh 5.1 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 5.2
+              if: matrix.php-version >= '7.2'
+              run: ./bin/install-symfony.sh 5.2 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 5.3
+              if: matrix.php-version >= '7.2'
+              run: ./bin/install-symfony.sh 5.3 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 5.4
+              if: matrix.php-version >= '7.2'
+              run: ./bin/install-symfony.sh 5.4 && php vendor/bin/phpunit
+
+            # Symfony 6
+            - name: Tests | Symfony 6.0
+              if: matrix.php-version >= '8.0'
+              run: ./bin/install-symfony.sh 6.0 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 6.1
+              if: matrix.php-version >= '8.0'
+              run: ./bin/install-symfony.sh 6.1 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 6.2
+              if: matrix.php-version >= '8.0'
+              run: ./bin/install-symfony.sh 6.2 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 6.3
+              if: matrix.php-version >= '8.0'
+              run: ./bin/install-symfony.sh 6.3 && php vendor/bin/phpunit
+
+            - name: Tests | Symfony 6.4
+              if: matrix.php-version >= '8.0'
+              run: ./bin/install-symfony.sh 6.4 && php vendor/bin/phpunit
+
+            # Symfony 7
+            - name: Tests | Symfony 7.0
+              if: matrix.php-version >= '8.2'
+              run: ./bin/install-symfony.sh 7.0 && php vendor/bin/phpunit

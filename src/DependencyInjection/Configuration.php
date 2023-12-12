@@ -21,16 +21,12 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder(): TreeBuilder
+    public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('deprecationsio');
-        $rootNode = $treeBuilder->getRootNode();
+        $treeBuilder = new TreeBuilder('deprecations_io');
 
-        $rootNode
-            ->children()
-                ->scalarNode('apikey')->defaultNull()->end()
-            ->end()
-        ;
+        $rootNode = $treeBuilder->getRootNode();
+        $rootNode->children()->scalarNode('dsn')->isRequired()->end()->end();
 
         return $treeBuilder;
     }
