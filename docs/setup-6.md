@@ -32,10 +32,6 @@ deprecations_io:
 
 ```yaml
 # config/packages/monolog.yaml
-monolog:
-    channels:
-        - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
-
 when@dev:
     monolog:
         handlers:
@@ -44,7 +40,6 @@ when@dev:
             deprecationsio_buffer:
                 type: buffer
                 buffer_size: 100
-                channels: [ deprecation ]
                 handler: deprecationsio
             deprecationsio:
                 type: service
@@ -62,7 +57,6 @@ when@test:
             deprecationsio_buffer:
                 type: buffer
                 buffer_size: 100
-                channels: [ deprecation ]
                 handler: deprecationsio
             deprecationsio:
                 type: service
@@ -80,7 +74,6 @@ when@prod:
             deprecationsio_buffer:
                 type: buffer
                 buffer_size: 100
-                channels: [ deprecation ]
                 handler: deprecationsio
             deprecationsio:
                 type: service
