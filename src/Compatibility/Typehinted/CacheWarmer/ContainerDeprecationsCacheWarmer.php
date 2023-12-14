@@ -44,5 +44,7 @@ class ContainerDeprecationsCacheWarmer implements CacheWarmerInterface
     public function warmUp(string $cacheDir, ?string $buildDir = null): array
     {
         ContainerDeprecationsCollector::collectLogs($this->client, $this->dsn, $this->containerPathPrefix);
+
+        return array();
     }
 }
