@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Compatibility\Untypehinted\DependencyInjection;
+namespace Deprecationsio\Bundle\Compatibility\Untypehinted\DependencyInjection;
 
-use DeprecationsIo\Bundle\Common\DependencyInjectionExtension as CommonExtension;
+use Deprecationsio\Bundle\Common\DependencyInjectionExtension as CommonExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
@@ -33,7 +33,7 @@ class UntypehintedExtension extends Extension
         CommonExtension::loadContainer(
             $config,
             $container,
-            'DeprecationsIo\Bundle\Compatibility\Untypehinted\CacheWarmer\ContainerDeprecationsCacheWarmer'
+            'Deprecationsio\Bundle\Compatibility\Untypehinted\CacheWarmer\ContainerDeprecationsCacheWarmer'
         );
     }
 }

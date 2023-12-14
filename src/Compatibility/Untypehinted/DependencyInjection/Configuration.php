@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Compatibility\Untypehinted\DependencyInjection;
+namespace Deprecationsio\Bundle\Compatibility\Untypehinted\DependencyInjection;
 
-use DeprecationsIo\Bundle\Common\DependencyInjectionExtension;
+use Deprecationsio\Bundle\Common\DependencyInjectionExtension;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**

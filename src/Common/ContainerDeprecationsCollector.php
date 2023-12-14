@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Common;
+namespace Deprecationsio\Bundle\Common;
 
-use DeprecationsIo\Monolog\Client\DeprecationsIoClientInterface;
-use DeprecationsIo\Monolog\Context\EventFactory;
+use Deprecationsio\Monolog\Client\DeprecationsioClientInterface;
+use Deprecationsio\Monolog\Context\EventFactory;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
  */
 class ContainerDeprecationsCollector
 {
-    public static function collectLogs(DeprecationsIoClientInterface $client, $dsn, $containerPathPrefix)
+    public static function collectLogs(DeprecationsioClientInterface $client, $dsn, $containerPathPrefix)
     {
         if (null === $containerPathPrefix || !file_exists($file = $containerPathPrefix . 'Deprecations.log')) {
             return;

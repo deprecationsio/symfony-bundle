@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Compatibility\Typehinted\DependencyInjection;
+namespace Deprecationsio\Bundle\Compatibility\Typehinted\DependencyInjection;
 
-use DeprecationsIo\Bundle\Common\DependencyInjectionExtension;
+use Deprecationsio\Bundle\Common\DependencyInjectionExtension;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 

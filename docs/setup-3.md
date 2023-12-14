@@ -17,7 +17,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             // ...
-            new DeprecationsIo\Bundle\DeprecationsIoBundle(),
+            new Deprecationsio\Bundle\DeprecationsioBundle(),
         ];
         
         // ...

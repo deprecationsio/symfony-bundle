@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Compatibility\Typehinted\CacheWarmer;
+namespace Deprecationsio\Bundle\Compatibility\Typehinted\CacheWarmer;
 
-use DeprecationsIo\Bundle\Common\ContainerDeprecationsCollector;
-use DeprecationsIo\Monolog\Client\DeprecationsIoClientInterface;
+use Deprecationsio\Bundle\Common\ContainerDeprecationsCollector;
+use Deprecationsio\Monolog\Client\DeprecationsioClientInterface;
 use Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface;
 
 /**
@@ -25,7 +25,7 @@ class ContainerDeprecationsCacheWarmer implements CacheWarmerInterface
     private $containerPathPrefix;
 
     /**
-     * @param DeprecationsIoClientInterface $client
+     * @param DeprecationsioClientInterface $client
      * @param string $dsn
      * @param string $containerPathPrefix
      */

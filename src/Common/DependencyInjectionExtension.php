@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Common;
+namespace Deprecationsio\Bundle\Common;
 
-use DeprecationsIo\Monolog\MonologHandlerClassNameResolver;
+use Deprecationsio\Monolog\MonologHandlerClassNameResolver;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -36,7 +36,7 @@ class DependencyInjectionExtension
     {
         // Client
         $container
-            ->setDefinition('deprecationsio.client', new Definition('DeprecationsIo\Monolog\Client\CurlDeprecationsIoClient'))
+            ->setDefinition('deprecationsio.client', new Definition('Deprecationsio\Monolog\Client\CurlDeprecationsioClient'))
             ->setPublic(false);
 
         // Monolog handler

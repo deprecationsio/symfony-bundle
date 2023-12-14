@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\DeprecationsIo\Bundle;
+namespace Tests\Deprecationsio\Bundle;
 
 if (!class_exists('PHPUnit\Framework\TestCase')) {
     class_alias('PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase');

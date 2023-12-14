@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle;
+namespace Deprecationsio\Bundle;
 
 use Symfony\Component\HttpKernel\Kernel;
 
 // Dynamic definition based on Symfony version
 if (Kernel::MAJOR_VERSION >= 6) {
-    class DeprecationsioBundle extends \DeprecationsIo\Bundle\Compatibility\Typehinted\TypehintedBundle
+    class DeprecationsioBundle extends \Deprecationsio\Bundle\Compatibility\Typehinted\TypehintedBundle
     {
     }
 } else {
-    class DeprecationsioBundle extends \DeprecationsIo\Bundle\Compatibility\Untypehinted\UntypehintedBundle
+    class DeprecationsioBundle extends \Deprecationsio\Bundle\Compatibility\Untypehinted\UntypehintedBundle
     {
     }
 }

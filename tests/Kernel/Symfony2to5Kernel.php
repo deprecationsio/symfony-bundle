@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\DeprecationsIo\Bundle\Kernel;
+namespace Tests\Deprecationsio\Bundle\Kernel;
 
-use DeprecationsIo\Bundle\DeprecationsioBundle;
+use Deprecationsio\Bundle\DeprecationsioBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;

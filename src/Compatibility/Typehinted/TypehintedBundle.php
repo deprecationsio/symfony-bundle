@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Compatibility\Typehinted;
+namespace Deprecationsio\Bundle\Compatibility\Typehinted;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -20,6 +20,6 @@ class TypehintedBundle extends Bundle
 {
     public function getContainerExtensionClass(): string
     {
-        return 'DeprecationsIo\Bundle\Compatibility\Typehinted\DependencyInjection\TypehintedExtension';
+        return 'Deprecationsio\Bundle\Compatibility\Typehinted\DependencyInjection\TypehintedExtension';
     }
 }

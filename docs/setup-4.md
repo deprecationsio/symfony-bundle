@@ -16,7 +16,7 @@ composer require deprecations-io/symfony-bundle
 // config/bundles.php
 return [
     // ...
-    DeprecationsIo\Bundle\DeprecationsIoBundle::class => ['all' => true],
+    Deprecationsio\Bundle\DeprecationsioBundle::class => ['all' => true],
 ];
 
 ```

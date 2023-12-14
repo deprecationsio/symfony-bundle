@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Tests\DeprecationsIo\Bundle;
+namespace Tests\Deprecationsio\Bundle;
 
 use Composer\InstalledVersions;
-use DeprecationsIo\Monolog\MonologHandlerClassNameResolver;
+use Deprecationsio\Monolog\MonologHandlerClassNameResolver;
 use Symfony\Component\HttpKernel\Kernel;
 
-class DeprecationsIoBundleTest extends UnitTest
+class DeprecationsioBundleTest extends UnitTest
 {
     public function testBootCreatesService()
     {
@@ -23,9 +23,9 @@ class DeprecationsIoBundleTest extends UnitTest
         $symfonyVersion = (int)$symfonyVersion[0];
 
         if ($symfonyVersion <= 5) {
-            $kernelClassName = 'Tests\DeprecationsIo\Bundle\Kernel\Symfony2to5Kernel';
+            $kernelClassName = 'Tests\Deprecationsio\Bundle\Kernel\Symfony2to5Kernel';
         } else {
-            $kernelClassName = 'Tests\DeprecationsIo\Bundle\Kernel\Symfony6plusKernel';
+            $kernelClassName = 'Tests\Deprecationsio\Bundle\Kernel\Symfony6plusKernel';
         }
 
         /** @var Kernel $kernel */
