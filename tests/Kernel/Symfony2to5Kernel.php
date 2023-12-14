@@ -53,8 +53,11 @@ class Symfony2to5Kernel extends Kernel
                 'dsn' => 'https://ingest.deprecations.io/example?apikey=test',
             ));
 
-            $container->setAlias('test.deprecationsio.monolog_handler', 'deprecationsio.monolog_handler')->setPublic(true);
-            $container->setAlias('test.deprecationsio.container_collector_cache_warmer', 'deprecationsio.container_collector_cache_warmer')->setPublic(true);
+            foreach (array('monolog_handler', 'container_collector_cache_warmer') as $serviceName) {
+                if ($alias = $container->setAlias('test.deprecationsio.'.$serviceName, 'deprecationsio.'.$serviceName)) {
+                    $alias->setPublic(true);
+                }
+            }
         });
     }
 }
