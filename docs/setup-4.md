@@ -24,7 +24,7 @@ return [
 3. Create a new `config/packages/deprecationsio.yml` configuration file:
 
 ```yaml
-deprecations_io:
+deprecationsio:
     dsn: 'https://ingest.deprecations.io/?apikey=<your-api-key>'
 ```
 

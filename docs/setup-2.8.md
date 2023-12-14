@@ -30,7 +30,7 @@ class AppKernel extends Kernel
 3. Configure the bundle in your `config.yml` file:
 
 ```yaml
-deprecations_io:
+deprecationsio:
     dsn: 'https://ingest.deprecations.io/?apikey=<your-api-key>'
 ```
 

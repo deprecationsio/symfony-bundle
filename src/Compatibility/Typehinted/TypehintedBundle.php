@@ -9,13 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Symfony2to5;
+namespace DeprecationsIo\Bundle\Compatibility\Typehinted;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
  */
-class DeprecationsIoBundle extends Bundle
+class TypehintedBundle extends Bundle
 {
+    public function getContainerExtensionClass(): string
+    {
+        return 'DeprecationsIo\Bundle\Compatibility\Typehinted\DependencyInjection\TypehintedExtension';
+    }
 }

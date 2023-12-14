@@ -20,7 +20,7 @@ class DeprecationsIoBundleTest extends UnitTest
     public function testBootCreatesService()
     {
         $symfonyVersion = explode('.', InstalledVersions::getVersion('symfony/http-kernel'));
-        $symfonyVersion = (int) $symfonyVersion[0];
+        $symfonyVersion = (int)$symfonyVersion[0];
 
         if ($symfonyVersion <= 5) {
             $kernelClassName = 'Tests\DeprecationsIo\Bundle\Kernel\Symfony2to5Kernel';
@@ -32,7 +32,10 @@ class DeprecationsIoBundleTest extends UnitTest
         $kernel = new $kernelClassName('test', true);
         $kernel->boot();
 
-        $handler = $kernel->getContainer()->get('deprecationsio.monolog_handler');
+        $handler = $kernel->getContainer()->get('test.deprecationsio.monolog_handler');
         $this->assertInstanceOf(MonologHandlerClassNameResolver::resolveHandlerClassName(), $handler);
+
+        $containerCollector = $kernel->getContainer()->get('test.deprecationsio.container_collector_cache_warmer');
+        $this->assertInstanceOf('Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerInterface', $containerCollector);
     }
 }

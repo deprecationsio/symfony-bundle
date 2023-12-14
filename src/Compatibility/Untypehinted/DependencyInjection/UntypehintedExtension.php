@@ -9,29 +9,31 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Symfony6plus\DependencyInjection;
+namespace DeprecationsIo\Bundle\Compatibility\Untypehinted\DependencyInjection;
 
-use DeprecationsIo\Monolog\MonologHandlerClassNameResolver;
+use DeprecationsIo\Bundle\Common\DependencyInjectionExtension as CommonExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
  */
-class DeprecationsIoExtension extends Extension
+class UntypehintedExtension extends Extension
 {
+    public function getAlias()
+    {
+        return 'deprecationsio';
+    }
+
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $handlerClassName = MonologHandlerClassNameResolver::resolveHandlerClassName();
-
-        $container
-            ->setDefinition('deprecationsio.monolog_handler', new Definition($handlerClassName))
-            ->addArgument($config['dsn'])
-            ->setPublic(true)
-        ;
+        CommonExtension::loadContainer(
+            $config,
+            $container,
+            'DeprecationsIo\Bundle\Compatibility\Untypehinted\CacheWarmer\ContainerDeprecationsCacheWarmer'
+        );
     }
 }

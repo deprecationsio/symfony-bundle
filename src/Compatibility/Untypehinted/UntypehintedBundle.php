@@ -9,13 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Symfony6plus;
+namespace DeprecationsIo\Bundle\Compatibility\Untypehinted;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * @author Titouan Galopin <titouan@deprecations.io>
  */
-class DeprecationsIoBundle extends Bundle
+class UntypehintedBundle extends Bundle
 {
+    public function getContainerExtensionClass()
+    {
+        return 'DeprecationsIo\Bundle\Compatibility\Untypehinted\DependencyInjection\UntypehintedExtension';
+    }
 }

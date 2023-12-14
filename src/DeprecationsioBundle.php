@@ -15,7 +15,11 @@ use Symfony\Component\HttpKernel\Kernel;
 
 // Dynamic definition based on Symfony version
 if (Kernel::MAJOR_VERSION >= 6) {
-    class_alias('DeprecationsIo\Bundle\Symfony6plus\DeprecationsIoBundle', 'DeprecationsIo\Bundle\DeprecationsIoBundle');
+    class DeprecationsioBundle extends \DeprecationsIo\Bundle\Compatibility\Typehinted\TypehintedBundle
+    {
+    }
 } else {
-    class_alias('DeprecationsIo\Bundle\Symfony2to5\DeprecationsIoBundle', 'DeprecationsIo\Bundle\DeprecationsIoBundle');
+    class DeprecationsioBundle extends \DeprecationsIo\Bundle\Compatibility\Untypehinted\UntypehintedBundle
+    {
+    }
 }

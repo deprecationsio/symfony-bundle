@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace DeprecationsIo\Bundle\Symfony2to5\DependencyInjection;
+namespace DeprecationsIo\Bundle\Compatibility\Untypehinted\DependencyInjection;
 
-use Symfony\Component\Config\Definition\Builder\TreeBuilder;
+use DeprecationsIo\Bundle\Common\DependencyInjectionExtension;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
@@ -21,11 +21,6 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('deprecations_io');
-
-        $rootNode = method_exists($treeBuilder, 'getRootNode') ? $treeBuilder->getRootNode() : $treeBuilder->root('deprecations_io');
-        $rootNode->children()->scalarNode('dsn')->isRequired()->end()->end();
-
-        return $treeBuilder;
+        return DependencyInjectionExtension::createTreeBuilder();
     }
 }

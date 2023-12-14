@@ -11,7 +11,7 @@
 
 namespace Tests\DeprecationsIo\Bundle\Kernel;
 
-use DeprecationsIo\Bundle\DeprecationsIoBundle;
+use DeprecationsIo\Bundle\DeprecationsioBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
@@ -23,6 +23,17 @@ class Symfony2to5Kernel extends Kernel
         return $this->createTmpDir('cache');
     }
 
+    private function createTmpDir($type)
+    {
+        $dir = sys_get_temp_dir() . '/deprecationsio_bundle/' . uniqid($type . '_', true);
+
+        if (!file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
+
+        return $dir;
+    }
+
     public function getLogDir()
     {
         return $this->createTmpDir('logs');
@@ -31,27 +42,19 @@ class Symfony2to5Kernel extends Kernel
     public function registerBundles()
     {
         return array(
-            new DeprecationsIoBundle(),
+            new DeprecationsioBundle(),
         );
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(function (ContainerBuilder $container) {
-            $container->loadFromExtension('deprecations_io', array(
+            $container->loadFromExtension('deprecationsio', array(
                 'dsn' => 'https://ingest.deprecations.io/example?apikey=test',
             ));
+
+            $container->setAlias('test.deprecationsio.monolog_handler', 'deprecationsio.monolog_handler')->setPublic(true);
+            $container->setAlias('test.deprecationsio.container_collector_cache_warmer', 'deprecationsio.container_collector_cache_warmer')->setPublic(true);
         });
-    }
-
-    private function createTmpDir($type)
-    {
-        $dir = sys_get_temp_dir().'/deprecationsio_bundle/'.uniqid($type.'_', true);
-
-        if (!file_exists($dir)) {
-            mkdir($dir, 0777, true);
-        }
-
-        return $dir;
     }
 }
