@@ -40,6 +40,11 @@ deprecationsio:
 > (config_dev.yaml, config_test.yaml and config_prod.yaml) to ensure you will catch 
 > as many deprecations as possible!
 
+> *Careful*: if you have defined the `framework.php_errors` configuration option
+> ([see documentation](https://symfony.com/doc/3.4/reference/configuration/framework.html#php-errors)),
+> be sure that it does not exclude deprecations, otherwise you will not receive deprecations 
+> in your Monolog handlers.
+
 ```yaml
 # config_dev.yaml, config_test.yaml, config_prod.yaml
 monolog:
