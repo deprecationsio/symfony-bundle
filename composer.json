@@ -1,5 +1,5 @@
 {
-    "name": "deprecations-io/symfony-bundle",
+    "name": "deprecationsio/symfony-bundle",
     "description": "Symfony bundle integrating deprecations.io with Symfony applications",
     "type": "bundle",
     "license": "MIT",
