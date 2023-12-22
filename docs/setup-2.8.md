@@ -3,7 +3,7 @@
 1. Install the bundle using Composer:
 
 ```
-composer require deprecations-io/symfony-bundle
+composer require deprecationsio/symfony-bundle
 ```
 
 2. Enable the bundle in your `AppKernel.php` file:

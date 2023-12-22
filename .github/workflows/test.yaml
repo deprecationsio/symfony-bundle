@@ -1,4 +1,4 @@
-name: deprecations-io/symfony-bundle
+name: deprecationsio/symfony-bundle
 
 on:
     pull_request: ~
