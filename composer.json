@@ -21,10 +21,14 @@
     },
     "require": {
         "php": ">=5.3",
-        "deprecationsio/monolog-handler": "^0.0.7",
+        "deprecationsio/monolog-handler": "^0.0.8",
         "symfony/config": "^2.8|^3.0|^4.0|^5.0|^6.0|^7.0",
         "symfony/dependency-injection": "^2.8|^3.0|^4.0|^5.0|^6.0|^7.0",
         "symfony/http-kernel": "^2.8|^3.0|^4.0|^5.0|^6.0|^7.0"
+    },
+    "scripts": {
+        "rmt-install": "echo 'Installing liip/rmt in /tools' && mkdir -p tools/rmt && composer require --working-dir=tools/rmt liip/rmt:1.7.4",
+        "release": "tools/rmt/vendor/bin/RMT release"
     },
     "config": {
         "preferred-install": {
